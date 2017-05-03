@@ -1,0 +1,12 @@
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\WaiMaiDemo.Model.dll.config
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\WaiMaiDemo.Model.dll
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\WaiMaiDemo.Model.pdb
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\EntityFramework.dll
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\EntityFramework.SqlServer.dll
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\EntityFramework.xml
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\EntityFramework.SqlServer.xml
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
+D:\Code\TuoZhan\WaiMaiDemo.Model\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\Code\TuoZhan\WaiMaiDemo.Model\obj\Debug\TuoZhan.Model.csprojResolveAssemblyReference.cache
+D:\Code\TuoZhan\WaiMaiDemo.Model\obj\Debug\WaiMaiDemo.Model.dll
+D:\Code\TuoZhan\WaiMaiDemo.Model\obj\Debug\WaiMaiDemo.Model.pdb

@@ -1,0 +1,12 @@
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\WaiMaiDemo.Model.dll.config
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\WaiMaiDemo.Model.dll
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\WaiMaiDemo.Model.pdb
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\EntityFramework.dll
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\EntityFramework.SqlServer.dll
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\EntityFramework.xml
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\EntityFramework.SqlServer.xml
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\zh-Hans\EntityFramework.resources.dll
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\obj\Release\WaiMaiDemo.Model.dll
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\obj\Release\WaiMaiDemo.Model.pdb
+D:\Code\Shangcheng\trunk\PC\WaiMaiDemo.Model\obj\Release\WaiMaiDemo.Model.csprojResolveAssemblyReference.cache

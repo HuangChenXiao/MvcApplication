@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TuoZhanModelStoreContainer" CdmEntityContainer="TuoZhanEntities">
+    <EntitySetMapping Name="BA_Advertisement">
+      <EntityTypeMapping TypeName="TuoZhanModel.BA_Advertisement">
+        <MappingFragment StoreEntitySet="BA_Advertisement">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AContent" ColumnName="AContent" />
+          <ScalarProperty Name="AdUrl" ColumnName="AdUrl" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CompanyQRCode" ColumnName="CompanyQRCode" />
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="CompanyPhone" ColumnName="CompanyPhone" />
+          <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="AdvertisementId" ColumnName="AdvertisementId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cu_Menu">
+      <EntityTypeMapping TypeName="TuoZhanModel.Cu_Menu">
+        <MappingFragment StoreEntitySet="Cu_Menu">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="URLAddress" ColumnName="URLAddress" />
+          <ScalarProperty Name="Imageicon" ColumnName="Imageicon" />
+          <ScalarProperty Name="IsBlank" ColumnName="IsBlank" />
+          <ScalarProperty Name="MenuName" ColumnName="MenuName" />
+          <ScalarProperty Name="FMenuId" ColumnName="FMenuId" />
+          <ScalarProperty Name="MenuId" ColumnName="MenuId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cu_User">
+      <EntityTypeMapping TypeName="TuoZhanModel.Cu_User">
+        <MappingFragment StoreEntitySet="Cu_User">
+          <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="AgID" ColumnName="AgID" />
+          <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
+          <ScalarProperty Name="UserAuthority" ColumnName="UserAuthority" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsonLine" ColumnName="IsonLine" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cu_UserAuthority">
+      <EntityTypeMapping TypeName="TuoZhanModel.Cu_UserAuthority">
+        <MappingFragment StoreEntitySet="Cu_UserAuthority">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+          <ScalarProperty Name="Authority" ColumnName="Authority" />
+          <ScalarProperty Name="AuthorityId" ColumnName="AuthorityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="P_CITYCALSS">
+      <EntityTypeMapping TypeName="TuoZhanModel.P_CITYCALSS">
+        <MappingFragment StoreEntitySet="P_CITYCALSS">
+          <ScalarProperty Name="AREA_CODE" ColumnName="AREA_CODE" />
+          <ScalarProperty Name="LAST_UPDATE_USER" ColumnName="LAST_UPDATE_USER" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="HOT_FLAG" ColumnName="HOT_FLAG" />
+          <ScalarProperty Name="ENABLE_DATE" ColumnName="ENABLE_DATE" />
+          <ScalarProperty Name="ENABLE" ColumnName="ENABLE" />
+          <ScalarProperty Name="SORT" ColumnName="SORT" />
+          <ScalarProperty Name="SITETYPE" ColumnName="SITETYPE" />
+          <ScalarProperty Name="LETTER" ColumnName="LETTER" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="KEYID" ColumnName="KEYID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_Carousel">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_Carousel">
+        <MappingFragment StoreEntitySet="TZ_Carousel">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AContent" ColumnName="AContent" />
+          <ScalarProperty Name="AdUrl" ColumnName="AdUrl" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CarouselId" ColumnName="CarouselId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_Customized">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_Customized">
+        <MappingFragment StoreEntitySet="TZ_Customized">
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="HandleTime" ColumnName="HandleTime" />
+          <ScalarProperty Name="HandleUser" ColumnName="HandleUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="MailBox" ColumnName="MailBox" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AdultNum" ColumnName="AdultNum" />
+          <ScalarProperty Name="ChildrenNum" ColumnName="ChildrenNum" />
+          <ScalarProperty Name="Days" ColumnName="Days" />
+          <ScalarProperty Name="BeginTime" ColumnName="BeginTime" />
+          <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_ExpandActivity">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_ExpandActivity">
+        <MappingFragment StoreEntitySet="TZ_ExpandActivity">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="ExpandTypeId" ColumnName="ExpandTypeId" />
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_ExpandProject">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_ExpandProject">
+        <MappingFragment StoreEntitySet="TZ_ExpandProject">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UpProjectId" ColumnName="UpProjectId" />
+          <ScalarProperty Name="IsWonderfulCase" ColumnName="IsWonderfulCase" />
+          <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+          <ScalarProperty Name="SalesNum" ColumnName="SalesNum" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="UpCity" ColumnName="UpCity" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+          <ScalarProperty Name="ProjectMinPic" ColumnName="ProjectMinPic" />
+          <ScalarProperty Name="ProjectPic" ColumnName="ProjectPic" />
+          <ScalarProperty Name="ProjectSpecial" ColumnName="ProjectSpecial" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="ProjectTripDays" ColumnName="ProjectTripDays" />
+          <ScalarProperty Name="ProjectPrice" ColumnName="ProjectPrice" />
+          <ScalarProperty Name="ProjectTime" ColumnName="ProjectTime" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+          <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_ExpandProjectDetail">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_ExpandProjectDetail">
+        <MappingFragment StoreEntitySet="TZ_ExpandProjectDetail">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_ExpandType">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_ExpandType">
+        <MappingFragment StoreEntitySet="TZ_ExpandType">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="ExpandTypeName" ColumnName="ExpandTypeName" />
+          <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+          <ScalarProperty Name="ExpandTypeId" ColumnName="ExpandTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_ProjectType">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_ProjectType">
+        <MappingFragment StoreEntitySet="TZ_ProjectType">
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="ProjectTypeEnglishName" ColumnName="ProjectTypeEnglishName" />
+          <ScalarProperty Name="ProjectTypeName" ColumnName="ProjectTypeName" />
+          <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_Seo">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_Seo">
+        <MappingFragment StoreEntitySet="TZ_Seo">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExpandActivity_Project_View">
+      <EntityTypeMapping TypeName="TuoZhanModel.ExpandActivity_Project_View">
+        <MappingFragment StoreEntitySet="ExpandActivity_Project_View">
+          <ScalarProperty Name="ExpandTypeName" ColumnName="ExpandTypeName" />
+          <ScalarProperty Name="ProjectTypeName" ColumnName="ProjectTypeName" />
+          <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+          <ScalarProperty Name="ExpandTypeId" ColumnName="ExpandTypeId" />
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TZ_ExpandProject_View">
+      <EntityTypeMapping TypeName="TuoZhanModel.TZ_ExpandProject_View">
+        <MappingFragment StoreEntitySet="TZ_ExpandProject_View">
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="ProjectMinPic" ColumnName="ProjectMinPic" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="UpProjectId" ColumnName="UpProjectId" />
+          <ScalarProperty Name="IsWonderfulCase" ColumnName="IsWonderfulCase" />
+          <ScalarProperty Name="SalesNum" ColumnName="SalesNum" />
+          <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+          <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+          <ScalarProperty Name="UpCity" ColumnName="UpCity" />
+          <ScalarProperty Name="ProjectTypeName" ColumnName="ProjectTypeName" />
+          <ScalarProperty Name="UpdateUser" ColumnName="UpdateUser" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+          <ScalarProperty Name="AddUser" ColumnName="AddUser" />
+          <ScalarProperty Name="AddTime" ColumnName="AddTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsHot" ColumnName="IsHot" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ProjectPic" ColumnName="ProjectPic" />
+          <ScalarProperty Name="ProjectSpecial" ColumnName="ProjectSpecial" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="ProjectTripDays" ColumnName="ProjectTripDays" />
+          <ScalarProperty Name="ProjectPrice" ColumnName="ProjectPrice" />
+          <ScalarProperty Name="ProjectTime" ColumnName="ProjectTime" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ActivityId" ColumnName="ActivityId" />
+          <ScalarProperty Name="ProjectTypeId" ColumnName="ProjectTypeId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

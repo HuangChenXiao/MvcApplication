@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TuoZhanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BA_Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementId" />
+    </Key>
+    <Property Name="AdvertisementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyLogo" Type="nvarchar" MaxLength="500" />
+    <Property Name="CompanyQRCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="AdUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="AContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cu_Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FMenuId" Type="int" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsBlank" Type="bit" />
+    <Property Name="Imageicon" Type="nvarchar" MaxLength="50" />
+    <Property Name="URLAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cu_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsonLine" Type="bit" />
+    <Property Name="Status" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserAuthority" Type="nvarchar" MaxLength="200" />
+    <Property Name="AuthorityId" Type="int" />
+    <Property Name="AgID" Type="int" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="PageSize" Type="int" />
+  </EntityType>
+  <EntityType Name="Cu_UserAuthority">
+    <Key>
+      <PropertyRef Name="AuthorityId" />
+    </Key>
+    <Property Name="AuthorityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Authority" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="UserTypeName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="P_CITYCALSS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KEYID" Type="int" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="LETTER" Type="varchar" MaxLength="1" />
+    <Property Name="SITETYPE" Type="tinyint" />
+    <Property Name="SORT" Type="int" />
+    <Property Name="ENABLE" Type="char" MaxLength="1" />
+    <Property Name="ENABLE_DATE" Type="datetime" />
+    <Property Name="HOT_FLAG" Type="char" MaxLength="1" />
+    <Property Name="CREATE_DATE" Type="datetime" />
+    <Property Name="CREATE_USER" Type="varchar" MaxLength="12" />
+    <Property Name="LAST_UPDATE_DATE" Type="datetime" />
+    <Property Name="LAST_UPDATE_USER" Type="varchar" MaxLength="12" />
+    <Property Name="AREA_CODE" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TZ_Carousel">
+    <Key>
+      <PropertyRef Name="CarouselId" />
+    </Key>
+    <Property Name="CarouselId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="AdUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="AContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TZ_Customized">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="ProjectTypeId" Type="int" />
+    <Property Name="BeginTime" Type="nvarchar" MaxLength="20" />
+    <Property Name="Days" Type="nvarchar" MaxLength="20" />
+    <Property Name="ChildrenNum" Type="nvarchar" MaxLength="20" />
+    <Property Name="AdultNum" Type="nvarchar" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="MailBox" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="HandleUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="HandleTime" Type="datetime" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandActivity">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+    </Key>
+    <Property Name="ActivityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExpandTypeId" Type="int" />
+    <Property Name="ActivityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandProject">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectTypeId" Type="int" />
+    <Property Name="ActivityId" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ProjectTripDays" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectSpecial" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProjectPic" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProjectMinPic" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProjectDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="Company" Type="nvarchar" MaxLength="100" />
+    <Property Name="KeyWord" Type="nvarchar" MaxLength="500" />
+    <Property Name="UpCity" Type="int" />
+    <Property Name="City" Type="int" />
+    <Property Name="SalesNum" Type="int" />
+    <Property Name="IsHot" Type="int" />
+    <Property Name="IsWonderfulCase" Type="bit" />
+    <Property Name="UpProjectId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandProjectDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandType">
+    <Key>
+      <PropertyRef Name="ExpandTypeId" />
+    </Key>
+    <Property Name="ExpandTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectTypeId" Type="int" />
+    <Property Name="ExpandTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TZ_ProjectType">
+    <Key>
+      <PropertyRef Name="ProjectTypeId" />
+    </Key>
+    <Property Name="ProjectTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectTypeEnglishName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TZ_Seo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" MaxLength="50" />
+    <Property Name="Value" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“TuoZhan.dbo.ExpandActivity_Project_View”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="ExpandActivity_Project_View">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+      <PropertyRef Name="ProjectTypeId" />
+    </Key>
+    <Property Name="ActivityId" Type="int" Nullable="false" />
+    <Property Name="ExpandTypeId" Type="int" />
+    <Property Name="ActivityName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectTypeId" Type="int" Nullable="false" />
+    <Property Name="ProjectTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ExpandTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--生成过程中发现错误:
+警告 6002: 表/视图“TuoZhan.dbo.TZ_ExpandProject_View”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+  <EntityType Name="TZ_ExpandProject_View">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="ProjectTypeId" Type="int" />
+    <Property Name="ActivityId" Type="nvarchar" MaxLength="200" />
+    <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ProjectTripDays" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectSpecial" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProjectPic" Type="nvarchar" MaxLength="500" />
+    <Property Name="City" Type="int" />
+    <Property Name="IsHot" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProjectTypeName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpCity" Type="int" />
+    <Property Name="ProjectDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="KeyWord" Type="nvarchar" MaxLength="500" />
+    <Property Name="SalesNum" Type="int" />
+    <Property Name="IsWonderfulCase" Type="bit" />
+    <Property Name="UpProjectId" Type="int" />
+    <Property Name="Company" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProjectMinPic" Type="nvarchar" MaxLength="500" />
+    <Property Name="CityName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="TuoZhanModelStoreContainer">
+    <EntitySet Name="BA_Advertisement" EntityType="Self.BA_Advertisement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cu_Menu" EntityType="Self.Cu_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cu_User" EntityType="Self.Cu_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cu_UserAuthority" EntityType="Self.Cu_UserAuthority" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="P_CITYCALSS" EntityType="Self.P_CITYCALSS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_Carousel" EntityType="Self.TZ_Carousel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_Customized" EntityType="Self.TZ_Customized" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_ExpandActivity" EntityType="Self.TZ_ExpandActivity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_ExpandProject" EntityType="Self.TZ_ExpandProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_ExpandProjectDetail" EntityType="Self.TZ_ExpandProjectDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_ExpandType" EntityType="Self.TZ_ExpandType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_ProjectType" EntityType="Self.TZ_ProjectType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TZ_Seo" EntityType="Self.TZ_Seo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExpandActivity_Project_View" EntityType="Self.ExpandActivity_Project_View" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ExpandActivity_Project_View].[ActivityId] AS [ActivityId], 
+    [ExpandActivity_Project_View].[ExpandTypeId] AS [ExpandTypeId], 
+    [ExpandActivity_Project_View].[ActivityName] AS [ActivityName], 
+    [ExpandActivity_Project_View].[AddTime] AS [AddTime], 
+    [ExpandActivity_Project_View].[AddUser] AS [AddUser], 
+    [ExpandActivity_Project_View].[UpdateTime] AS [UpdateTime], 
+    [ExpandActivity_Project_View].[UpdateUser] AS [UpdateUser], 
+    [ExpandActivity_Project_View].[ProjectTypeId] AS [ProjectTypeId], 
+    [ExpandActivity_Project_View].[ProjectTypeName] AS [ProjectTypeName], 
+    [ExpandActivity_Project_View].[ExpandTypeName] AS [ExpandTypeName]
+    FROM [dbo].[ExpandActivity_Project_View] AS [ExpandActivity_Project_View]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="TZ_ExpandProject_View" EntityType="Self.TZ_ExpandProject_View" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [TZ_ExpandProject_View].[ProjectId] AS [ProjectId], 
+    [TZ_ExpandProject_View].[ProjectTypeId] AS [ProjectTypeId], 
+    [TZ_ExpandProject_View].[ActivityId] AS [ActivityId], 
+    [TZ_ExpandProject_View].[ProjectName] AS [ProjectName], 
+    [TZ_ExpandProject_View].[ProjectTime] AS [ProjectTime], 
+    [TZ_ExpandProject_View].[ProjectPrice] AS [ProjectPrice], 
+    [TZ_ExpandProject_View].[ProjectTripDays] AS [ProjectTripDays], 
+    [TZ_ExpandProject_View].[ProjectTitle] AS [ProjectTitle], 
+    [TZ_ExpandProject_View].[ProjectSpecial] AS [ProjectSpecial], 
+    [TZ_ExpandProject_View].[ProjectPic] AS [ProjectPic], 
+    [TZ_ExpandProject_View].[City] AS [City], 
+    [TZ_ExpandProject_View].[IsHot] AS [IsHot], 
+    [TZ_ExpandProject_View].[Status] AS [Status], 
+    [TZ_ExpandProject_View].[AddTime] AS [AddTime], 
+    [TZ_ExpandProject_View].[AddUser] AS [AddUser], 
+    [TZ_ExpandProject_View].[UpdateTime] AS [UpdateTime], 
+    [TZ_ExpandProject_View].[UpdateUser] AS [UpdateUser], 
+    [TZ_ExpandProject_View].[ProjectTypeName] AS [ProjectTypeName], 
+    [TZ_ExpandProject_View].[UpCity] AS [UpCity], 
+    [TZ_ExpandProject_View].[ProjectDescription] AS [ProjectDescription], 
+    [TZ_ExpandProject_View].[KeyWord] AS [KeyWord], 
+    [TZ_ExpandProject_View].[SalesNum] AS [SalesNum], 
+    [TZ_ExpandProject_View].[IsWonderfulCase] AS [IsWonderfulCase], 
+    [TZ_ExpandProject_View].[UpProjectId] AS [UpProjectId], 
+    [TZ_ExpandProject_View].[Company] AS [Company], 
+    [TZ_ExpandProject_View].[ProjectMinPic] AS [ProjectMinPic], 
+    [TZ_ExpandProject_View].[CityName] AS [CityName]
+    FROM [dbo].[TZ_ExpandProject_View] AS [TZ_ExpandProject_View]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

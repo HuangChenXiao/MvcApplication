@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BuyunSiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BA_Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementId" />
+    </Key>
+    <Property Name="AdvertisementId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyAddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="CompanyLogo" Type="nvarchar" MaxLength="500" />
+    <Property Name="CompanyQRCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="AdUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="AContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Type" Type="int" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BA_Case">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="500" />
+    <Property Name="Background" Type="nvarchar" MaxLength="500" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="ToUrl" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BA_Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="50" />
+    <Property Name="Memo" Type="nvarchar" MaxLength="4000" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BA_FriendshipLink">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="500" />
+    <Property Name="ToUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="BA_Information">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="SubName" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+    <Property Name="Content" Type="text" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Cu_Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FMenuId" Type="int" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsBlank" Type="bit" />
+    <Property Name="Imageicon" Type="nvarchar" MaxLength="50" />
+    <Property Name="URLAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Cu_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsonLine" Type="bit" />
+    <Property Name="Status" Type="int" />
+    <Property Name="AddTime" Type="datetime" />
+    <Property Name="AddUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdateTime" Type="datetime" />
+    <Property Name="UpdateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserAuthority" Type="nvarchar" MaxLength="200" />
+    <Property Name="AuthorityId" Type="int" />
+    <Property Name="AgID" Type="int" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="PageSize" Type="int" />
+  </EntityType>
+  <EntityType Name="Cu_UserAuthority">
+    <Key>
+      <PropertyRef Name="AuthorityId" />
+    </Key>
+    <Property Name="AuthorityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Authority" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="UserTypeName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityContainer Name="BuyunSiteModelStoreContainer">
+    <EntitySet Name="BA_Advertisement" EntityType="Self.BA_Advertisement" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BA_Case" EntityType="Self.BA_Case" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BA_Contact" EntityType="Self.BA_Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BA_FriendshipLink" EntityType="Self.BA_FriendshipLink" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BA_Information" EntityType="Self.BA_Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cu_Menu" EntityType="Self.Cu_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cu_User" EntityType="Self.Cu_User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cu_UserAuthority" EntityType="Self.Cu_UserAuthority" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

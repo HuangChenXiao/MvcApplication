@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="/favicon.ico">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://lib.h-ui.net/html5.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/respond.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/PIE_IE678.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="http://static.h-ui.net/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/Hui-iconfont/1.0.7/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/icheck/icheck.css" />
+    <link href="/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+    <link href="~/static/h-ui.admin/css/style.css" rel="stylesheet" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <!--/meta 作为公共模版分离出去-->
+    <title>案例新增管理</title>
+    <meta name="keywords" content="H-ui.admin v2.3,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="H-ui.admin v2.3，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+    <article class="page-container" id="myApp" style="width:95%">
+        <form class="form form-horizontal" id="form-admin-add">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>城市：</label>
+                <div class="formControls col-xs-4 col-sm-4">
+                    <span class="select-box">
+                        <select class="select" name="UpCity" id="UpCity" size="1" onchange="selectCity()">
+                            <option v-for="item in UpCity" v-bind:value="item.ID" v-text="item.NAME"></option>
+                        </select>
+                    </span>
+                </div>
+                <div class="formControls col-xs-4 col-sm-5">
+                    <span class="select-box">
+                        <select class="select" name="City" id="City" size="1"></select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>公司名称：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="请输入公司名称（例如：xxx公司）" id="Company" name="Company">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>案例名称：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="请输入案例名称（例如：xxx案例）" id="ProjectName" name="ProjectName">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>案例时间：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="请输入案例时间（例如：春季、秋季）" id="ProjectTime" name="ProjectTime">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>案例报价：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="请输入案例报价（例如：100）" id="ProjectPrice" name="ProjectPrice">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>行程天数：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="请输入行程天数（例如：1天）" id="ProjectTripDays" name="ProjectTripDays">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>案例主题：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="请输入案例主题（例如：xx骑行）" id="ProjectTitle" name="ProjectTitle">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>案例特色：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" placeholder="请输入案例特色（例如：xx特惠|畅快骑行体验）用|隔开" id="ProjectSpecial" name="ProjectSpecial">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>状态：</label>
+                <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                    <div class="radio-box">
+                        <input name="Status" value="1" type="radio" id="radio-1" checked>
+                        <label for="radio-1">上架</label>
+                    </div>
+                    <div class="radio-box">
+                        <input name="Status" type="radio" value="0" id="radio-2">
+                        <label for="radio-2">下架</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">案例简介：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <textarea name="ProjectDescription" cols="" rows="" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="案例简介不能为空！" onkeyup="textarealength(this,200)"></textarea>
+                    <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">关联项目：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <select class="chzn-select input-text" id="UpProjectId" name="UpProjectId" data-placeholder="关联正在运营的项目" tabindex="1">
+                        <option value=""></option>
+                        <template v-for="item in ProjectList">
+                            <option v-bind:value="item.ProjectId" v-text="item.ProjectName"></option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">缩略图：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div class="uploader-thum-container">
+                        <div id="fileList1" class="uploader-list"></div>
+                        <div id="filePicker1">选择图片</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">图片上传：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div class="uploader-list-container">
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePicker-2"></div>
+                                <p>或将照片拖到这里，单次最多可选10张</p>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
+                            <div class="info"></div>
+                            <div class="btns">
+                                <div id="filePicker2"></div>
+                                <div class="uploadBtn">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                    <input type="hidden" id="ProjectPic" name="ProjectPic" />
+                    <input type="hidden" id="ProjectMinPic" name="ProjectMinPic" />
+                    <input type="hidden" id="IsWonderfulCase" name="IsWonderfulCase" value="true" />
+                    <input class="btn btn-primary radius" type="submit" value="提交">
+                </div>
+            </div>
+        </form>
+    </article>
+    <!--_footer 作为公共模版分离出去-->
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/layer/2.1/layer.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/icheck/jquery.icheck.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/validate-methods.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script>
+    <script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script>
+    <script type="text/javascript" src="/lib/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="/lib/webuploader/0.1.5/webuploader.min.js"></script>
+    <!--_个人添加JS模板-->
+    <link href="~/Content/css/chosen.css" rel="stylesheet" />
+    <script src="~/lib/chosen.jquery/chosen.jquery.js"></script>
+    <script src="~/lib/jquery.cookie/jquery.cookie.js"></script>
+    <script src="~/lib/jquery.form/jquery-form.js"></script>
+    <script src="~/Content/js/base.js"></script>
+    <script src="~/lib/Vue/vue.min.js"></script>
+    <script src="~/Content/js/vuebase.js"></script>
+    <script src="~/Content/js/webupload.js"></script>
+    <script src="~/Content/js/webuploadmin.js"></script>
+    <!--/_footer /作为公共模版分离出去-->
+    <!--请在下方写此页面业务相关的脚本-->
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#myApp",
+            data: {
+                ProjectList: "",
+                UpCity: '',
+                City: '',
+            },
+            methods: {
+                getList: function () {
+                    $.post("GetProjectList", { "ProjectId": 0 }, function (data) {
+                        vm.ProjectList = data.ProjectList;
+                    })
+                    $.post("GetCity", { "KeyId": 0 }, function (data) {
+                        vm.UpCity = data.data;
+                    })
+                }
+            },
+            updated: function () {
+                $(".chzn-select").chosen();
+                selectCity()
+            }
+        })
+        vm.getList();
+        function selectCity() {
+            var KeyId = $("#UpCity").val()
+            $.post("GetCity", { "KeyId": KeyId }, function (data) {
+                $("#City").empty();
+                for (var i = 0; i < data.data.length; i++) {
+                    $("#City").append('<option value="' + data.data[i].ID + '">' + data.data[i].NAME + '</option>')
+                }
+            })
+        }
+        myupload('ProjectPic');
+        Fun_fileList("/Home/WebUpLoad", "fileList1", "filePicker1", "ProjectMinPic");
+        $(function () {
+            $("#form-admin-add").validate({
+                rules: {
+                    Company: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                    ProjectName: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                    ProjectTime: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                    ProjectPrice: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50,
+                        number: true
+                    },
+                    ProjectTitle: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                    ProjectSpecial: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    }
+                },
+                onkeyup: false,
+                focusCleanup: true,
+                success: "valid",
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit({
+                        url: "/ExpandProject/AddExpandProject",
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.data == "success") {
+                                layer.msg("案例" + data.content, { icon: 1, time: 1000 }, function () {
+                                    $.parentReload();
+                                });
+                            }
+                            else {
+                                layer.msg("案例"+data.content, { icon: 0 });
+                            }
+                        },
+                        error: function (xhr, error, ex) {
+                            layer.msg("出现错误，请稍后再试，带来不便，敬请谅解", { icon: 0 });
+                        }
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+    <!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

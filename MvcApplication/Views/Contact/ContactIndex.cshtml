@@ -1,0 +1,98 @@
+﻿@{
+    Custom.Model.BuyunSiteEntities db = new Custom.Model.BuyunSiteEntities();
+    var ContactList = db.BA_Contact.ToList();
+    db.Dispose();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="/favicon.ico">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/lib/html5.js"></script>
+    <script type="text/javascript" src="/lib/respond.min.js"></script>
+    <script type="text/javascript" src="/lib/PIE_IE678.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.7/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/icheck/icheck.css" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+    <link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>留言板列表</title>
+</head>
+<body>
+    <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 留言板管理 <span class="c-gray en">&gt;</span> 留言板列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    <div class="page-container" id="myAdmin">
+
+        <table class="table table-border table-bordered table-bg">
+            <thead>
+                <tr class="text-c">
+                    <th>姓名</th>
+                    <th>联系方式</th>
+                    <th>所属公司</th>
+                    <th>简述需求</th>
+                    <th>状态</th>
+                    <th width="100">操作</th>
+                </tr>
+            </thead>
+            <tbody v-for="item in AdminList">
+                @for (int i = 0; i < ContactList.Count(); i++)
+                {
+                    <tr class="text-c">
+                        <td>@ContactList[i].Name</td>
+                        <td>@ContactList[i].Phone</td>
+                        <td>@ContactList[i].Company</td>
+                        <td>@ContactList[i].Memo</td>
+                        <td class="status">@Html.Raw(ContactList[i].Status == 1 ? "<b style='color:#808080'>已查看<b/>" : "<b style='color:red'>未查看<b/>")</td>
+                        <td>
+                            @if (ContactList[i].Status == 1)
+                            {
+                                <input class="btn" type="button" disabled style="background: #e5e5e5;cursor: default;" value="查看" />
+
+                            }
+                            else
+                            {
+                                <input class="btn" type="button" onclick="StatusEdit(this,@ContactList[i].Id)" value=" 查看" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script>
+    <script src="~/lib/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/lib/layer/2.1/layer.js"></script>
+    <script type="text/javascript" src="/lib/laypage/1.2/laypage.js"></script>
+    <script type="text/javascript" src="/lib/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script>
+    <script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script>
+    <script type="text/javascript" src="/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(function(){
+            $('.table-bg').dataTable();
+        })
+        function StatusEdit(_this,Id){
+            $.post("ContactStatusEdit",{"Id":Id},function(data){
+                if (data.data=="success") {
+                    $(_this).parents("tr").find(".status").empty();
+                    $(_this).parents("tr").find(".status").append("<b style='color:#808080'>已查看<b/>");
+                    $(_this).attr("disabled","disabled");
+                    $(_this).attr("style","background: #e5e5e5;cursor: default;")
+                }
+            })
+        }
+    </script>
+</body>
+</html>

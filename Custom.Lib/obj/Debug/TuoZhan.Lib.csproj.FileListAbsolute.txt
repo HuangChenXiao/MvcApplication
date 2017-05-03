@@ -1,0 +1,10 @@
+D:\Code\TuoZhan\WaiMaiDemo.Lib\bin\Debug\TuoZhan.Lib.dll
+D:\Code\TuoZhan\WaiMaiDemo.Lib\bin\Debug\TuoZhan.Lib.pdb
+D:\Code\TuoZhan\WaiMaiDemo.Lib\bin\Debug\Newtonsoft.Json.dll
+D:\Code\TuoZhan\WaiMaiDemo.Lib\bin\Debug\System.Web.Mvc.dll
+D:\Code\TuoZhan\WaiMaiDemo.Lib\bin\Debug\Newtonsoft.Json.xml
+D:\Code\TuoZhan\WaiMaiDemo.Lib\bin\Debug\System.Web.Mvc.xml
+D:\Code\TuoZhan\WaiMaiDemo.Lib\bin\Debug\zh-Hans\System.Web.Mvc.resources.dll
+D:\Code\TuoZhan\WaiMaiDemo.Lib\obj\Debug\TuoZhan.Lib.csprojResolveAssemblyReference.cache
+D:\Code\TuoZhan\WaiMaiDemo.Lib\obj\Debug\TuoZhan.Lib.dll
+D:\Code\TuoZhan\WaiMaiDemo.Lib\obj\Debug\TuoZhan.Lib.pdb

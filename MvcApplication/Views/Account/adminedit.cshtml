@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="/favicon.ico">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://lib.h-ui.net/html5.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/respond.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/PIE_IE678.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="http://static.h-ui.net/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/Hui-iconfont/1.0.7/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/icheck/icheck.css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <!--/meta 作为公共模版分离出去-->
+    <title>修改管理员 - 管理员管理 - H-ui.admin v2.4</title>
+    <meta name="keywords" content="H-ui.admin v2.3,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="H-ui.admin v2.3，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+    <article class="page-container" id="AdminAdd">
+        <form class="form form-horizontal" id="form-admin-add">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>登录名：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+
+                    <input type="text" class="input-text" v-bind:value="Admin.UserCode" placeholder="请输入管理员编号" id="UserCode" name="UserCode">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" v-bind:value="Admin.UserName" placeholder="请输入管理员姓名" id="UserName" name="UserName">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red"></span>密码：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="password" class="input-text" autocomplete="off" value="" placeholder="密码" id="UserPassword" name="UserPassword">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input type="text" class="input-text" v-bind:value="Admin.UserPhone" placeholder="" id="UserPhone" name="UserPhone">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">角色：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <span class="select-box" style="width:150px;">
+                        <select class="select" name="AuthorityId" size="1">
+                            <template v-for="item in RoleList">
+                                <template v-if="Admin.AuthorityId == item.AuthorityId">
+                                    <option v-bind:value="item.AuthorityId" selected="selected" v-text="item.UserTypeName"></option>
+                                </template>
+                                <template v-else>
+                                    <option v-bind:value="item.AuthorityId" v-text="item.UserTypeName"></option>
+                                </template>
+                            </template>
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                    <input type="hidden" name="UserId" v-bind:value="Admin.UserId" />
+                    <input class="btn btn-primary radius" type="submit" value="提交">
+                </div>
+            </div>
+        </form>
+    </article>
+    <!--_footer 作为公共模版分离出去-->
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/layer/2.1/layer.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/icheck/jquery.icheck.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/validate-methods.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script>
+    <script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script>
+    <!--_个人添加JS模板-->
+    <script src="~/lib/jquery.cookie/jquery.cookie.js"></script>
+    <script src="~/lib/jquery.form/jquery-form.js"></script>
+    <script src="~/Content/js/base.js"></script>
+    <script src="~/lib/Vue/vue.min.js"></script>
+    <script src="~/Content/js/vuebase.js"></script>
+    <!--/_footer /作为公共模版分离出去-->
+    <!--请在下方写此页面业务相关的脚本-->
+    <script type="text/javascript">
+        var Request = $.GetRequest();
+        var vm = new Vue({
+            el: "#AdminAdd",
+            data: {
+                RoleList: '',
+                Admin:''
+            },
+            methods: {
+                getList: function () {
+                    var _this = this;
+                    $.post('/Account/AuthorityList', function (data) {
+                        _this.RoleList = data.data;
+                    })
+                    $.post('/Account/AdminByUserIdList', { "UserId": Request.UserId}, function (data) {
+                        _this.Admin = data.data[0];
+                    })
+                }
+            }
+        })
+        vm.getList();
+        $(function () {
+            $("#form-admin-add").validate({
+                rules: {
+                    UserCode: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 10
+                    },
+                    UserName: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 6
+                    },
+                    UserPhone: {
+                        required: true,
+                        isPhone: true,
+                    },
+                    AuthorityId: {
+                        required: true,
+                    },
+                },
+                onkeyup: false,
+                focusCleanup: true,
+                success: "valid",
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit({
+                        url: "/Account/EditAdmin",
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.data == "success") {
+                                layer.msg(data.content, { icon: 1,time:1000 }, function () {
+                                    $.parentReload();
+                                });
+                            }
+                            else {
+                                layer.msg(data.content, { icon: 0 });
+                            }
+                        },
+                        error: function (xhr, error, ex) {
+                            layer.msg("出现错误，请稍后再试，带来不便，敬请谅解", { icon: 0 });
+                        }
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+    <!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

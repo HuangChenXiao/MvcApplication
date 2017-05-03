@@ -1,0 +1,8 @@
+﻿@charset "utf-8";
+/* 你自己的样式 */
+.text-swarning{font-weight:bold;border-radius:3px;padding:3px 8px;background:#F59932;color:#fff}
+.text-ssuccess{font-weight:bold;border-radius:3px;padding:3px 8px;background:#5EB95E;color:#fff}
+.text-sdanger{font-weight:bold;border-radius:3px;padding:3px 8px;background:#dd514c;color:#fff}
+.text-sdanger{font-weight:bold;border-radius:3px;padding:3px 8px;background:#C0C0C0;color:#fff}
+.text-mright{margin-right:10px}
+.text-mbottom{margin-bottom:10px}

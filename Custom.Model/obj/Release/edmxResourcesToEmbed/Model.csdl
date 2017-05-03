@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TuoZhanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TuoZhanEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BA_Advertisement" EntityType="TuoZhanModel.BA_Advertisement" />
+    <EntitySet Name="Cu_Menu" EntityType="TuoZhanModel.Cu_Menu" />
+    <EntitySet Name="Cu_User" EntityType="TuoZhanModel.Cu_User" />
+    <EntitySet Name="Cu_UserAuthority" EntityType="TuoZhanModel.Cu_UserAuthority" />
+    <EntitySet Name="P_CITYCALSS" EntityType="TuoZhanModel.P_CITYCALSS" />
+    <EntitySet Name="TZ_Carousel" EntityType="TuoZhanModel.TZ_Carousel" />
+    <EntitySet Name="TZ_Customized" EntityType="TuoZhanModel.TZ_Customized" />
+    <EntitySet Name="TZ_ExpandActivity" EntityType="TuoZhanModel.TZ_ExpandActivity" />
+    <EntitySet Name="TZ_ExpandProject" EntityType="TuoZhanModel.TZ_ExpandProject" />
+    <EntitySet Name="TZ_ExpandProjectDetail" EntityType="TuoZhanModel.TZ_ExpandProjectDetail" />
+    <EntitySet Name="TZ_ExpandType" EntityType="TuoZhanModel.TZ_ExpandType" />
+    <EntitySet Name="TZ_ProjectType" EntityType="TuoZhanModel.TZ_ProjectType" />
+    <EntitySet Name="TZ_Seo" EntityType="TuoZhanModel.TZ_Seo" />
+    <EntitySet Name="ExpandActivity_Project_View" EntityType="TuoZhanModel.ExpandActivity_Project_View" />
+    <EntitySet Name="TZ_ExpandProject_View" EntityType="TuoZhanModel.TZ_ExpandProject_View" />
+  </EntityContainer>
+  <EntityType Name="BA_Advertisement">
+    <Key>
+      <PropertyRef Name="AdvertisementId" />
+    </Key>
+    <Property Name="AdvertisementId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLogo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyQRCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AdUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Cu_Menu">
+    <Key>
+      <PropertyRef Name="MenuId" />
+    </Key>
+    <Property Name="MenuId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FMenuId" Type="Int32" />
+    <Property Name="MenuName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsBlank" Type="Boolean" />
+    <Property Name="Imageicon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="URLAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Cu_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsonLine" Type="Boolean" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserAuthority" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="AuthorityId" Type="Int32" />
+    <Property Name="AgID" Type="Int32" />
+    <Property Name="IsAdmin" Type="Boolean" />
+    <Property Name="PageSize" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Cu_UserAuthority">
+    <Key>
+      <PropertyRef Name="AuthorityId" />
+    </Key>
+    <Property Name="AuthorityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Authority" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UserTypeName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="P_CITYCALSS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KEYID" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LETTER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="SITETYPE" Type="Byte" />
+    <Property Name="SORT" Type="Int32" />
+    <Property Name="ENABLE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="ENABLE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="HOT_FLAG" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="CREATE_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="3" />
+    <Property Name="LAST_UPDATE_USER" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="AREA_CODE" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TZ_Carousel">
+    <Key>
+      <PropertyRef Name="CarouselId" />
+    </Key>
+    <Property Name="CarouselId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AdUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AContent" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_Customized">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="ProjectTypeId" Type="Int32" />
+    <Property Name="BeginTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Days" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ChildrenNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AdultNum" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MailBox" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="HandleUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="HandleTime" Type="DateTime" Precision="3" />
+    <Property Name="Reason" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandActivity">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+    </Key>
+    <Property Name="ActivityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExpandTypeId" Type="Int32" />
+    <Property Name="ActivityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandProject">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectTypeId" Type="Int32" />
+    <Property Name="ActivityId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ProjectTripDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectSpecial" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectMinPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Company" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KeyWord" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="UpCity" Type="Int32" />
+    <Property Name="City" Type="Int32" />
+    <Property Name="SalesNum" Type="Int32" />
+    <Property Name="IsHot" Type="Int32" />
+    <Property Name="IsWonderfulCase" Type="Boolean" />
+    <Property Name="UpProjectId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandProjectDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandType">
+    <Key>
+      <PropertyRef Name="ExpandTypeId" />
+    </Key>
+    <Property Name="ExpandTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectTypeId" Type="Int32" />
+    <Property Name="ExpandTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_ProjectType">
+    <Key>
+      <PropertyRef Name="ProjectTypeId" />
+    </Key>
+    <Property Name="ProjectTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTypeEnglishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_Seo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Keywords" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ExpandActivity_Project_View">
+    <Key>
+      <PropertyRef Name="ActivityId" />
+      <PropertyRef Name="ProjectTypeId" />
+    </Key>
+    <Property Name="ActivityId" Type="Int32" Nullable="false" />
+    <Property Name="ExpandTypeId" Type="Int32" />
+    <Property Name="ActivityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTypeId" Type="Int32" Nullable="false" />
+    <Property Name="ProjectTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ExpandTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TZ_ExpandProject_View">
+    <Key>
+      <PropertyRef Name="ProjectId" />
+    </Key>
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="ProjectTypeId" Type="Int32" />
+    <Property Name="ActivityId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ProjectTripDays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectSpecial" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="Int32" />
+    <Property Name="IsHot" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="AddTime" Type="DateTime" Precision="3" />
+    <Property Name="AddUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="UpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpCity" Type="Int32" />
+    <Property Name="ProjectDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KeyWord" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SalesNum" Type="Int32" />
+    <Property Name="IsWonderfulCase" Type="Boolean" />
+    <Property Name="UpProjectId" Type="Int32" />
+    <Property Name="Company" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProjectMinPic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

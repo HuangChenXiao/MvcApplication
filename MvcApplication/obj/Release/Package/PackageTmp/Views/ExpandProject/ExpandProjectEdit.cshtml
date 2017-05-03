@@ -1,0 +1,396 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="Bookmark" href="/favicon.ico">
+    <link rel="Shortcut Icon" href="/favicon.ico" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://lib.h-ui.net/html5.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/respond.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/PIE_IE678.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="http://static.h-ui.net/h-ui/css/H-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/Hui-iconfont/1.0.7/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="http://lib.h-ui.net/icheck/icheck.css" />
+    <link href="/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+    <link href="~/static/h-ui.admin/css/style.css" rel="stylesheet" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <!--/meta 作为公共模版分离出去-->
+    <title>项目修改管理</title>
+    <meta name="keywords" content="H-ui.admin v2.3,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="H-ui.admin v2.3，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+    <article class="page-container" id="myApp" style="width:95%">
+        <form class="form form-horizontal" id="form-admin-add">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目类型：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <span class="select-box" style="background:#eee">
+                        <select class="select" name="ProjectTypeId" id="ProjectTypeId" size="1" onchange="GetExpandActivity($(this).val())" style="background:#eee">
+                            <template v-for="item in ProjectType">
+                                <template v-if="List.ProjectTypeId==item.ProjectTypeId">
+                                    <option selected v-bind:value="item.ProjectTypeId" v-text="item.ProjectTypeName"></option>
+                                </template>
+                                @*<template v-else>
+                                    <option v-bind:value="item.ProjectTypeId" v-text="item.ProjectTypeName"></option>
+                                </template>*@
+                            </template>
+
+                        </select>
+                    </span>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>城市：</label>
+                <div class="formControls col-xs-4 col-sm-4">
+                    <span class="select-box">
+                        <select class="select" name="UpCity" id="UpCity" size="1" onchange="selectCity()">
+                            <template v-for="item in UpCity">
+                                <template v-if="item.ID==List.UpCity">
+                                    <option selected v-bind:value="item.ID" v-text="item.NAME"></option>
+                                </template>
+                                <template v-else>
+                                    <option v-bind:value="item.ID" v-text="item.NAME"></option>
+                                </template>
+                            </template>
+                        </select>
+                    </span>
+                </div>
+                <div class="formControls col-xs-4 col-sm-5">
+                    <span class="select-box">
+                        <select class="select" name="City" id="City" size="1"></select>
+                    </span>
+                </div>
+            </div>
+            <template v-for="type in ExpandType">
+                <div class="row cl expandactivity">
+                    <label class="form-label col-xs-4 col-sm-3 ActivetyCount"><span v-text="type.ExpandTypeName"></span>:</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <template v-for="activity in ExpandActivity">
+                            <template v-if="activity.ExpandTypeId==type.ExpandTypeId">
+                                <div class="radio-box" style="height:30px">
+                                    <input v-bind:name="'ActivityId'+type.ExpandTypeId" v-bind:value="activity.ActivityId" type="checkbox" v-bind:id="'ActivityId'+activity.ActivityId">
+                                    <label v-bind:for="'ActivityId'+activity.ActivityId" v-text="activity.ActivityName"></label>
+                                </div>
+                            </template>
+                        </template>
+                    </div>
+                </div>
+            </template>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目名称：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input v-bind:value="List.ProjectName" type="text" class="input-text" placeholder="请输入项目名称（例如：xxx徒步旅行）" id="ProjectName" name="ProjectName">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目时间：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input v-bind:value="List.ProjectTime" type="text" class="input-text" placeholder="请输入项目时间（例如：全年）" id="ProjectTime" name="ProjectTime">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目报价：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input v-bind:value="List.ProjectPrice" type="text" class="input-text" placeholder="请输入项目报价（例如：520）" id="ProjectPrice" name="ProjectPrice">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>行程天数：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input v-bind:value="List.ProjectTripDays" type="text" class="input-text" placeholder="请输入行程天数（例如：5天）" id="ProjectTripDays" name="ProjectTripDays">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目主题：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input v-bind:value="List.ProjectTitle" type="text" class="input-text" placeholder="请输入项目主题（例如：xx徒步）" id="ProjectTitle" name="ProjectTitle">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>项目特色：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <input v-bind:value="List.ProjectSpecial" type="text" class="input-text" placeholder="请输入项目特色（例如：灵白古道穿越|尽览林脉雄姿|春季踏青徒步|团建前行好心情）用|隔开" id="ProjectSpecial" name="ProjectSpecial">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>状态：</label>
+                <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                    <template v-if="List.Status==1">
+                        <div class="radio-box">
+                            <input name="Status" value="1" type="radio" id="radio-1" checked>
+                            <label for="radio-1">上架</label>
+                        </div>
+                        <div class="radio-box">
+                            <input name="Status" type="radio" value="0" id="radio-2">
+                            <label for="radio-2">下架</label>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <div class="radio-box">
+                            <input name="Status" value="1" type="radio" id="radio-1">
+                            <label for="radio-1">上架</label>
+                        </div>
+                        <div class="radio-box">
+                            <input name="Status" type="radio" value="0" id="radio-2" checked>
+                            <label for="radio-2">下架</label>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>热门：</label>
+                <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                    <template v-if="List.IsHot==1">
+                        <div class="radio-box">
+                            <input name="IsHot" value="1" type="radio" id="radio-3" checked>
+                            <label for="radio-3">是&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                        <div class="radio-box">
+                            <input name="IsHot" type="radio" value="0" id="radio-4">
+                            <label for="radio-4">否</label>
+                        </div>
+                    </template>
+                    <template v-else>
+                        <div class="radio-box">
+                            <input name="IsHot" value="1" type="radio" id="radio-3">
+                            <label for="radio-3">是&nbsp;&nbsp;&nbsp;</label>
+                        </div>
+                        <div class="radio-box">
+                            <input name="IsHot" type="radio" value="0" id="radio-4" checked>
+                            <label for="radio-4">否</label>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">项目简介：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <textarea v-text="List.ProjectDescription" name="ProjectDescription" cols="" rows="" class="textarea" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="项目简介不能为空！" onkeyup="textarealength(this,200)"></textarea>
+                    <p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">缩略图：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div class="uploader-thum-container">
+                        <div id="fileList1" class="uploader-list"></div>
+                        <div id="filePicker1">选择图片</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3">图片上传：</label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <div class="uploader-list-container">
+                        <div class="uploader-list manyImage"></div>
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePicker-2"></div>
+                                <p>或将照片拖到这里，单次最多可选10张</p>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress"> <span class="text">0%</span> <span class="percentage"></span> </div>
+                            <div class="info"></div>
+                            <div class="btns">
+                                <div id="filePicker2"></div>
+                                <div class="uploadBtn">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                    <input v-bind:value="List.ProjectPic" type="hidden" id="ProjectPic" name="ProjectPic" />
+                    <input v-bind:value="List.ProjectMinPic" type="hidden" id="ProjectMinPic" name="ProjectMinPic" />
+                    <input v-bind:value="List.ProjectId" type="hidden" id="ProjectId" name="ProjectId" />
+                    <input type="hidden" id="IsWonderfulCase" name="IsWonderfulCase" value="0"/>
+                    <input type="hidden" id="ActivetyCount" name="ActivetyCount"/>
+                    <input class="btn btn-primary radius" type="submit" value="提交">
+                </div>
+            </div>
+        </form>
+    </article>
+    <!--_footer 作为公共模版分离出去-->
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/layer/2.1/layer.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/icheck/jquery.icheck.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/validate-methods.js"></script>
+    <script type="text/javascript" src="http://lib.h-ui.net/jquery.validation/1.14.0/messages_zh.min.js"></script>
+    <script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script>
+    <script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script>
+    <script type="text/javascript" src="/lib/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" src="/lib/webuploader/0.1.5/webuploader.min.js"></script>
+    <!--_个人添加JS模板-->
+    <script src="~/lib/jquery.cookie/jquery.cookie.js"></script>
+    <script src="~/lib/jquery.form/jquery-form.js"></script>
+    <script src="~/Content/js/base.js"></script>
+    <script src="~/lib/Vue/vue.min.js"></script>
+    <script src="~/Content/js/vuebase.js"></script>
+    <script src="~/Content/js/webupload.js"></script>
+    <script src="~/Content/js/webuploadmin.js"></script>
+    <!--/_footer /作为公共模版分离出去-->
+    <!--请在下方写此页面业务相关的脚本-->
+    <script type="text/javascript">
+        var Request = $.GetRequest();
+        var IsUpdateImg = false;
+        var vm = new Vue({
+            el: "#myApp",
+            data: {
+                List: "",
+                ProjectType: "",
+                UpCity: "",
+                ExpandType: '',
+                ExpandActivity: '',
+                strActivityId: ''
+            },
+            methods: {
+                getList: function () {
+                    $.post("GetExpandProjectInfo", { "ProjectId": Request.ProjectId }, function (data) {
+                        vm.List = data.data;
+                        if (data.data.ActivityId) {
+                            vm.strActivityId = data.data.ActivityId.split(',');
+                        }
+                        $.post("/ProjectType/GetProjectTypeIndex", { "ProjectTypeId": data.data.ProjectTypeId }, function (data) {
+                            vm.ProjectType = data.data;
+                        })
+                        GetExpandActivity(data.data.ProjectTypeId);
+                    })
+                    $.post("GetCity", { "KeyId": 0 }, function (data) {
+                        vm.UpCity = data.data;
+                    })
+                }
+            },
+            updated: function () {
+                if (!IsUpdateImg && vm.List) {
+                    IsUpdateImg = true;
+                    if (vm.List.ProjectPic) {
+                        for (var i = 0; i < $.splitSymbol(vm.List.ProjectPic).split(',').length; i++) {
+                            getimglist(vm.List.ProjectPic.split(',')[i]);
+                        }
+                    }
+                    Fun_fileList("/Home/WebUpLoad", "fileList1", "filePicker1", "ProjectMinPic");
+                    FillImage(vm.List.ProjectId, vm.List.ProjectMinPic, "fileList1");
+                }
+                selectCity();
+                selectExpandActivity()
+            }
+        })
+        vm.getList();
+        function GetExpandActivity(ProjectTypeId) {
+            $.post("GetExpandActivityInfo", { "ProjectTypeId": ProjectTypeId }, function (data) {
+                vm.ExpandType = data.ExpandType;
+                vm.ExpandActivity = data.ExpandActivity;
+                $("#ActivetyCount").val(data.ExpandType.length)
+            })
+        }
+        function selectExpandActivity() {
+            var expandactivity = $(".expandactivity input[type=checkbox]");
+            for (var i = 0; i < expandactivity.length; i++) {
+                for (var y = 0; y < vm.strActivityId.length; y++) {
+                    if (expandactivity[i].value == vm.strActivityId[y]) {
+                        $(expandactivity[i]).attr("checked", true);
+                    }
+                }
+            }
+            $('.skin-minimal input').iCheck({
+                checkboxClass: 'icheckbox-blue',
+                radioClass: 'iradio-blue',
+                increaseArea: '20%'
+            });
+        }
+        function selectCity() {
+            var KeyId = $("#UpCity").val()
+            $.post("GetCity", { "KeyId": KeyId }, function (data) {
+                $("#City").empty();
+                for (var i = 0; i < data.data.length; i++) {
+                    if (vm.List.City == data.data[i].ID) {
+                        $("#City").append('<option selected value="' + data.data[i].ID + '">' + data.data[i].NAME + '</option>')
+                    }
+                    else {
+                        $("#City").append('<option value="' + data.data[i].ID + '">' + data.data[i].NAME + '</option>')
+                    }
+                }
+            })
+        }
+
+        myupload('ProjectPic');
+        function deleteimg(_this) {
+            $(_this).parents(".file-item").remove();
+            var strimg = '';
+            for (var i = 0; i < $(".manyImage .file-item img").length ; i++) {
+                strimg += $(".manyImage .file-item img").attr("src") + ",";
+            }
+            $("#ProjectPic").val(strimg);
+        }
+        $(function () {
+            $("#form-admin-add").validate({
+                rules: {
+                    ProjectName: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                    ProjectTime: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                    ProjectPrice: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50,
+                        number: true
+                    },
+                    ProjectTitle: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                    ProjectSpecial: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 50
+                    },
+                },
+                onkeyup: false,
+                focusCleanup: true,
+                success: "valid",
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit({
+                        url: "/ExpandProject/EditExpandProject",
+                        type: "POST",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.data == "success") {
+                                layer.msg("项目" + data.content, { icon: 1, time: 1000 }, function () {
+                                    $.parentReload();
+                                });
+                            }
+                            else {
+                                layer.msg("项目" + data.content, { icon: 0 });
+                            }
+                        },
+                        error: function (xhr, error, ex) {
+                            layer.msg("出现错误，请稍后再试，带来不便，敬请谅解", { icon: 0 });
+                        }
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+    <!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
